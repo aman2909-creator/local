@@ -44,3 +44,27 @@ df = pd.DataFrame(np.random.rand(12,4),index = a, columns=list("ABCD"))
 # print(df.iloc[1:3, :])
 # print(df.iloc[1,1])
 # print(df.iat[1,1])
+
+
+
+# boolean indexing
+# print(df[df['A']>0])
+# print(df[df>0])
+# df2 = df.copy()
+# df2['E'] = range(12)
+# print(df2)
+# print(df2[df2['E'].isin([2,4])])
+
+
+
+# setting
+s1 = pd.Series(range(12),index = pd.date_range("20250522",periods = 12))
+df['F'] = s1
+# print(df)
+# df.at[a[0],'A']=0
+# df.iat[1,2] = 0
+# df.loc[:,'D'] = np.array([5]*len(df))
+# print(df)
+df2 = df.copy()
+df2[df2>0] = -df2
+print(df2)
