@@ -65,6 +65,6 @@ df['F'] = s1
 # df.iat[1,2] = 0
 # df.loc[:,'D'] = np.array([5]*len(df))
 # print(df)
-df2 = df.copy()
-df2[df2>0] = -df2
-print(df2)
+# df2 = df.copy()
+# df2[df2>0] = -df2
+# print(df2)
