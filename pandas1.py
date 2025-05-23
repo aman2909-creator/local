@@ -1,7 +1,8 @@
 import numpy as np 
 import pandas as pd
+import matplotlib.pyplot as plt
 
-a = pd.date_range("20250522",periods=12)
+# a = pd.date_range("20250522",periods=12)
 # print(a)
 
 # df = pd.DataFrame({"date":['20250522','20250524','20250526'],"value":[10,20,30]})
@@ -124,14 +125,32 @@ a = pd.date_range("20250522",periods=12)
 
 
 #grouping
-df = pd.DataFrame(
-    {
-        "A": ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
-        "B": ["one", "one", "two", "three", "two", "two", "one", "three"],
-        "C": np.random.randn(8),
-        "D": np.random.randn(8),
-    }
-)
+# df = pd.DataFrame(
+#     {
+#         "A": ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+#         "B": ["one", "one", "two", "three", "two", "two", "one", "three"],
+#         "C": np.random.randn(8),
+#         "D": np.random.randn(8),
+#     }
+# )
 # print(df)
 # print(df.groupby("A")[["C","D"]].sum())
-print(df.groupby(["A","B"]).sum())
+# print(df.groupby(["A","B"]).sum())
+
+
+
+#plotting
+# plt.close("all")
+# ts = pd.Series(np.random.randn(1000),index = pd.date_range("20250101",periods=1000))
+# ts = ts.cumsum()
+# ts.plot()
+# plt.show()
+
+# df = pd.DataFrame(
+#     np.random.randn(1000, 4), index=ts.index, columns=["A", "B", "C", "D"]
+# )
+# df = df.cumsum()
+# plt.figure()
+# df.plot()
+# plt.legend(loc='best')
+# plt.show()
