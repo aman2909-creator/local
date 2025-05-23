@@ -120,3 +120,18 @@ a = pd.date_range("20250522",periods=12)
 # left = pd.DataFrame({"key": ["foo", "bar"], "lval": [1, 2]})
 # right = pd.DataFrame({"key": ["foo", "bar"], "rval": [4, 5]})
 # print(pd.merge(left, right, on="key"))
+
+
+
+#grouping
+df = pd.DataFrame(
+    {
+        "A": ["foo", "bar", "foo", "bar", "foo", "bar", "foo", "foo"],
+        "B": ["one", "one", "two", "three", "two", "two", "one", "three"],
+        "C": np.random.randn(8),
+        "D": np.random.randn(8),
+    }
+)
+# print(df)
+# print(df.groupby("A")[["C","D"]].sum())
+print(df.groupby(["A","B"]).sum())
