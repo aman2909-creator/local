@@ -13,7 +13,7 @@ a = pd.date_range("20250522",periods=12)
 # print(df)
 # print(b)
 # df = pd.DataFrame({"A":1.0,"B":pd.Timestamp("20250522"),"C":pd.Series(1,index=list(range(4))),"D":np.array([3]*4),"E":pd.Categorical(["test","train","test","train"]),"F":"foo"})
-df = pd.DataFrame(np.random.rand(12,4),index = a, columns=list("ABCD"))
+# df = pd.DataFrame(np.random.rand(12,4),index = a, columns=list("ABCD"))
 # print(df.head())
 # print(df.tail())
 # print(df.index)
@@ -58,8 +58,8 @@ df = pd.DataFrame(np.random.rand(12,4),index = a, columns=list("ABCD"))
 
 
 # setting
-s1 = pd.Series(range(12),index = pd.date_range("20250522",periods = 12))
-df['F'] = s1
+# s1 = pd.Series(range(12),index = pd.date_range("20250522",periods = 12))
+# df['F'] = s1
 # print(df)
 # df.at[a[0],'A']=0
 # df.iat[1,2] = 0
@@ -68,3 +68,55 @@ df['F'] = s1
 # df2 = df.copy()
 # df2[df2>0] = -df2
 # print(df2)
+
+
+# missing data
+# df1 = df.reindex(index=a[0:4],columns=list(df.columns)+['E'])
+# df1.loc[a[0]:a[1],'E'] = 1
+# print(df1)
+# print(df1.dropna(how="any"))
+# print(df1.fillna(value=5))
+# print(pd.isna(df1))
+
+
+
+# operations : Stats
+# print(df.mean()) #Calculate the mean value for each column
+# print(df.mean(axis=1))#calculate the mean value of each row
+# s = pd.Series([1,3,5,np.nan,6,8,9,10,np.nan,np.nan,np.nan,7],index=a).shift(2)#shift(x) shifts values from x places
+# print(s)
+# print(df.sub(s,axis="index"))
+
+
+
+#operations :User defined functions
+# print(df.agg(lambda x: np.mean(x)*5.6))
+# print(df.transform(lambda x: x * 101.2))
+
+
+
+#opeartions : value counts
+# s = pd.Series(np.random.randint(0, 7, size=10))
+# print(s)
+# print(s.value_counts())
+
+
+
+#Merge : Conacat
+# df =  pd.DataFrame(np.random.randn(10, 4))
+# print(df)
+# pieces = [df[:3],df[3:7],df[7:]]
+# print(pd.concat(pieces))
+
+
+#Merge : Join
+# left = pd.DataFrame({"key": ["foo", "foo"], "lval": [1, 2]})
+# right = pd.DataFrame({"key": ["foo", "foo"], "rval": [4, 5]})
+# print(left)
+# print(right)
+# print(pd.merge(left,right,on="key"))
+
+#merge() on unique keys:
+# left = pd.DataFrame({"key": ["foo", "bar"], "lval": [1, 2]})
+# right = pd.DataFrame({"key": ["foo", "bar"], "rval": [4, 5]})
+# print(pd.merge(left, right, on="key"))
